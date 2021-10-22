@@ -1,0 +1,23 @@
+/* -----------------------------------------------------------------------------
+*	      							$LAYOUT
+*  ----------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(to right, #38383857, #3838389b),
+    url(./src/bg-body.jpeg);
+  background: -webkit-linear-gradient(to right, #3838389b, #3838389b),
+    url(./src/bg-body.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-size: 1.25rem;
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+}
