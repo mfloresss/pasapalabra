@@ -5,6 +5,7 @@ import { words } from "./keyswords.js";
 // ----------------------------------------------
 
 let cont = 0;
+let pepito = false;
 let score = 0;
 let seconds = 1;
 let minutes = 0;
@@ -27,11 +28,11 @@ const checkAnswer = () => {
       rosco.children[cont].classList.remove("item--noAnswer");
       rosco.children[cont].classList.remove("item--failure");
       rosco.children[cont].classList.remove("item--skip");
-      score += 5;
+      score++;
     } else {
       rosco.children[cont].classList.add("item--failure");
       palabrasSinResponder.push(cont);
-      score -= 5;
+      score--;
     }
   }
   document.getElementById("score").innerHTML = `Score: ${score}`;
@@ -47,52 +48,48 @@ const skipWord = () => {
 const showInfo = () => {
   rosco.children[cont].classList.add("parpadea");
   document.getElementById("word").innerHTML = `${words[cont].letra}`;
-  if (words[cont].empieza === true) {
-    document.getElementById(
-      "starts"
-    ).innerHTML = `Empieza con ${words[cont].letra}`;
-  } else {
-    document.getElementById(
-      "starts"
-    ).innerHTML = `No empieza con ${words[cont].letra}`;
-  }
+  document.getElementById("starts").innerHTML = `${
+    words[cont].empieza === true
+      ? "Empieza con " + words[cont].letra
+      : "No empieza con " + words[cont].letra
+  } `;
+  document.getElementById("contains").innerHTML = `${
+    words[cont].contiene === true
+      ? "Contiene " + words[cont].letra
+      : "No contiene " + words[cont].letra
+  } `;
   document.getElementById(
     "description"
   ).innerHTML = `Descripcion: ${words[cont].descripcion}`;
-  if (words[cont].contiene === true) {
-    document.getElementById(
-      "contains"
-    ).innerHTML = `Contiene ${words[cont].letra}`;
-  } else {
-    document.getElementById(
-      "contains"
-    ).innerHTML = `No contiene ${words[cont].letra}`;
-  }
 };
 
 const checkCont = () => {
   if (cont === rosco.children.length - 1) {
+    pepito = true;
     rosco.children[cont].classList.remove("parpadea");
-    finishGame();
-    showInfo();
+    checkFinishGame();
   } else {
+    rosco.children[cont].classList.remove("parpadea");
     cont++;
-    rosco.children[cont - 1].classList.remove("parpadea");
     showInfo();
   }
 };
 
-const finishGame = () => {
+const checkFinishGame = () => {
+  let succes = 0;
   for (let i = 0; i < rosco.children.length - 1; i++) {
-    if (rosco.children[i].getElementsByClassName === "item--success") {
-      cont = 0;
-      score = 0;
-      clearInterval(timer);
-      document.getElementById("finish-game").classList.add("pepepepepe");
-    } else {
-      cont = palabrasSinResponder[0];
+    if (rosco.children[i].className === "item--success") {
+      succes++;
+      if (succes === rosco.children.length - 1) {
+        score = 0;
+        clearInterval(timer);
+      }
     }
   }
+};
+
+const checkNoAnswer = () => {
+  cont = palabrasSinResponder[0];
 };
 
 var timer = setInterval(() => {

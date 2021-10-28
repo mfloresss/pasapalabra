@@ -12,67 +12,62 @@
     <title>Pasapalabra</title>
   </head>
   <body>
-    <div id="finish-game">
-      <header>
-        <div class="title-container">
-          <p class="title">PASAPALABRA</p>
+    <header>
+      <div class="title-container">
+        <p class="title">PASAPALABRA</p>
+      </div>
+    </header>
+    <div class="game">
+      <!-- <div class="container-circle"> -->
+      <ul class="circle" id="ul">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+        <li>G</li>
+        <li>H</li>
+        <li>I</li>
+        <li>J</li>
+        <li>L</li>
+        <li>M</li>
+        <li>N</li>
+        <li>Ñ</li>
+        <li>O</li>
+        <li>P</li>
+        <li>Q</li>
+        <li>R</li>
+        <li>S</li>
+        <li>T</li>
+        <li>U</li>
+        <li>V</li>
+        <li>X</li>
+        <li>Y</li>
+        <li>Z</li>
+      </ul>
+      <div class="container-text-and-inputs">
+        <div class="text">
+          <h1 id="word"></h1>
+          <!-- <span id="starts"></span>
+          <span id="contains"></span> -->
+          <p id="starts"></p>
+          <p id="contains"></p>
+          <p id="description"></p>
         </div>
-      </header>
-      <main>
-        <div class="game">
-          <div class="circle-container">
-            <ul class="circle" id="ul">
-              <li>A</li>
-              <li>B</li>
-              <li>C</li>
-              <li>D</li>
-              <li>E</li>
-              <li>F</li>
-              <li>G</li>
-              <li>H</li>
-              <li>I</li>
-              <li>J</li>
-              <li>L</li>
-              <li>M</li>
-              <li>N</li>
-              <li>Ñ</li>
-              <li>O</li>
-              <li>P</li>
-              <li>R</li>
-              <li>S</li>
-              <li>T</li>
-              <li>U</li>
-              <li>V</li>
-              <li>X</li>
-              <li>Y</li>
-              <li>Z</li>
-            </ul>
-          </div>
-          <div class="container-text-and-inputs">
-            <div class="text">
-              <h1 id="word"></h1>
-              <p id="starts"></p>
-              <p id="contains"></p>
-              <p id="description"></p>
-            </div>
-            <form onsubmit="return false;">
-              <input
-                type="text"
-                placeholder="Ingrese tu respuesta"
-                id="answer"
-              />
-              <button type="submit" id="submit">Enviar</button>
-              <button type="submit" id="skip">Pasapalabra</button>
-            </form>
-            <div class="scoreboard">
-              <p id="timer">Tiempo: 0:0</p>
-              <p id="score" class="score" href="">Score: 0</p>
-            </div>
-          </div>
+        <form onsubmit="return false;">
+          <input type="text" placeholder="Ingrese tu respuesta" id="answer" />
+          <button type="submit" id="submit">Enviar</button>
+          <button type="submit" id="skip">Pasapalabra</button>
+        </form>
+        <div class="scoreboard">
+          <p id="timer">Tiempo: 0:0</p>
+          <p id="score" class="score" href="">Score: 0</p>
         </div>
-      </main>
-      <footer></footer>
+      </div>
     </div>
-    <script type="module" src="./main.js"></script>
+    <!-- </div> -->
+    <footer></footer>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
