@@ -1,3 +1,3 @@
 # proyecto-rosco
 
-Este es el repo para proyecto de nuestra de nuestra institucion que se basa en un juego (Rosco).
+Este es el repo para un proyecto de nuestra de nuestra institucion, se trata del juego Pasapalabra.
