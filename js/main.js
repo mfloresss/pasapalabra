@@ -4,48 +4,57 @@ import { words } from "./keyswords.js";
 //                    VARIABLES
 // ----------------------------------------------
 
+let aux = 0;
 let cont = 0;
-let pepito = false;
 let score = 0;
-let seconds = 1;
-let minutes = 0;
+let succes = 0;
+let failure = 0;
+let minutes = 1;
+let seconds = 30;
+let gano = false;
+let perdio = false;
+let changeCont = false;
 let palabrasSinResponder = [];
 const rosco = document.getElementById("ul");
 const showTimer = document.getElementById("timer");
 
 // ----------------------------------------------
-//                    FUNCIONES
+//                    FUNCTIONS
 // ----------------------------------------------
 
 const checkAnswer = () => {
-  const userAnswer = document.getElementById("answer").value;
-  if (userAnswer === "") {
-    rosco.children[cont].classList.add("item--noAnswer");
-    palabrasSinResponder.push(cont);
-  } else {
-    if (userAnswer.toLowerCase() === words[cont].palabra.toLowerCase()) {
-      rosco.children[cont].classList.add("item--success");
-      rosco.children[cont].classList.remove("item--noAnswer");
-      rosco.children[cont].classList.remove("item--failure");
-      rosco.children[cont].classList.remove("item--skip");
-      score++;
+  if ((gano || perdio) === false) {
+    const userAnswer = document.getElementById("answer").value;
+    if (userAnswer === "") {
+      rosco.children[cont].classList.add("item--noAnswer");
     } else {
-      rosco.children[cont].classList.add("item--failure");
-      palabrasSinResponder.push(cont);
-      score--;
+      if (userAnswer.toLowerCase() === words[cont].palabra.toLowerCase()) {
+        rosco.children[cont].classList.remove("item--noAnswer");
+        rosco.children[cont].classList.remove("item--skip");
+        rosco.children[cont].classList.add("item--success");
+        score++;
+      } else {
+        rosco.children[cont].classList.remove("item--noAnswer");
+        rosco.children[cont].classList.remove("item--skip");
+        rosco.children[cont].classList.add("item--failure");
+        score--;
+      }
     }
+    document.getElementById("score").innerHTML = `Score: ${score}`;
+    checkCont();
   }
-  document.getElementById("score").innerHTML = `Score: ${score}`;
-  checkCont();
 };
 
 const skipWord = () => {
   rosco.children[cont].classList.add("item--skip");
-  palabrasSinResponder.push(cont);
   checkCont();
 };
 
 const showInfo = () => {
+  console.log("Cont: " + cont);
+  console.log("Score: " + score);
+  console.log("Succes: " + succes);
+  console.log("Failure: " + failure);
   rosco.children[cont].classList.add("parpadea");
   document.getElementById("word").innerHTML = `${words[cont].letra}`;
   document.getElementById("starts").innerHTML = `${
@@ -64,43 +73,81 @@ const showInfo = () => {
 };
 
 const checkCont = () => {
-  if (cont === rosco.children.length - 1) {
-    pepito = true;
-    rosco.children[cont].classList.remove("parpadea");
-    checkFinishGame();
+  if (changeCont === true) {
+    checkNoAnswer();
   } else {
-    rosco.children[cont].classList.remove("parpadea");
-    cont++;
-    showInfo();
-  }
-};
-
-const checkFinishGame = () => {
-  let succes = 0;
-  for (let i = 0; i < rosco.children.length - 1; i++) {
-    if (rosco.children[i].className === "item--success") {
-      succes++;
-      if (succes === rosco.children.length - 1) {
-        score = 0;
-        clearInterval(timer);
-      }
+    if (cont === rosco.children.length - 1) {
+      rosco.children[cont].classList.remove("parpadea");
+      checkFinishGame();
+    } else {
+      rosco.children[cont].classList.remove("parpadea");
+      cont++;
+      showInfo();
     }
   }
 };
 
 const checkNoAnswer = () => {
-  cont = palabrasSinResponder[0];
+  if (aux === palabrasSinResponder.length - 1) {
+    rosco.children[cont].classList.remove("parpadea");
+    aux = 0;
+    checkFinishGame();
+  } else {
+    rosco.children[cont].classList.remove("parpadea");
+    aux++;
+    cont = palabrasSinResponder[aux];
+    showInfo();
+  }
+};
+
+const checkFinishGame = () => {
+  succes = 0;
+  failure = 0;
+  palabrasSinResponder = [];
+  if ((gano || perdio) === false) {
+    for (let i = 0; i < rosco.children.length; i++) {
+      if (rosco.children[i].className === "item--success") {
+        succes++;
+      } else {
+        if (rosco.children[i].className === "item--failure") {
+          failure++;
+        } else {
+          if (
+            rosco.children[i].className === "item--skip" ||
+            "item--noAnswer"
+          ) {
+            palabrasSinResponder.push(i);
+          }
+        }
+      }
+    }
+  }
+  if (succes === rosco.children.length) {
+    gano = true;
+    clearInterval(timer);
+    console.log("ganaste");
+  } else {
+    if (failure === rosco.children.length) {
+      perdio = true;
+      clearInterval(timer);
+      console.log("perdiste");
+    } else {
+      changeCont = true;
+      cont = palabrasSinResponder[aux];
+      showInfo();
+    }
+  }
 };
 
 var timer = setInterval(() => {
   showTimer.innerHTML = `Tiempo: ${minutes}:${seconds}`;
-  if (seconds === 60) {
-    seconds = 0;
-    minutes++;
+  if (seconds === 0) {
+    minutes = 0;
+    seconds = 60;
   } else {
-    seconds++;
+    seconds--;
   }
-  if (minutes === 1 && seconds === 30) {
+  if (minutes === 0 && seconds === 0) {
     showTimer.innerHTML = "Perdiste";
     clearInterval(timer);
   }
