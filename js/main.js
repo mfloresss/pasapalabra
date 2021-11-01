@@ -51,10 +51,6 @@ const skipWord = () => {
 };
 
 const showInfo = () => {
-  console.log("Cont: " + cont);
-  console.log("Score: " + score);
-  console.log("Succes: " + succes);
-  console.log("Failure: " + failure);
   rosco.children[cont].classList.add("parpadea");
   document.getElementById("word").innerHTML = `${words[cont].letra}`;
   document.getElementById("starts").innerHTML = `${
