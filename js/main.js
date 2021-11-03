@@ -7,12 +7,10 @@ import { words } from "./keyswords.js";
 let aux = 0;
 let cont = 0;
 let score = 0;
-let succes = 0;
-let failure = 0;
 let minutes = 1;
 let seconds = 30;
-let gano = false;
-let perdio = false;
+let contFinish = 0;
+let finishGame = false;
 let changeCont = false;
 let palabrasSinResponder = [];
 const rosco = document.getElementById("ul");
@@ -23,11 +21,9 @@ const showTimer = document.getElementById("timer");
 // ----------------------------------------------
 
 const checkAnswer = () => {
-  if ((gano || perdio) === false) {
+  if (finishGame === false) {
     const userAnswer = document.getElementById("answer").value;
-    if (userAnswer === "") {
-      rosco.children[cont].classList.add("item--noAnswer");
-    } else {
+    if (userAnswer !== "") {
       if (userAnswer.toLowerCase() === words[cont].palabra.toLowerCase()) {
         rosco.children[cont].classList.remove("item--noAnswer");
         rosco.children[cont].classList.remove("item--skip");
@@ -46,8 +42,11 @@ const checkAnswer = () => {
 };
 
 const skipWord = () => {
-  rosco.children[cont].classList.add("item--skip");
-  checkCont();
+  if (finishGame === false) {
+    rosco.children[cont].classList.remove("item--noAnswer");
+    rosco.children[cont].classList.add("item--skip");
+    checkCont();
+  }
 };
 
 const showInfo = () => {
@@ -86,7 +85,6 @@ const checkCont = () => {
 const checkNoAnswer = () => {
   if (aux === palabrasSinResponder.length - 1) {
     rosco.children[cont].classList.remove("parpadea");
-    aux = 0;
     checkFinishGame();
   } else {
     rosco.children[cont].classList.remove("parpadea");
@@ -97,55 +95,51 @@ const checkNoAnswer = () => {
 };
 
 const checkFinishGame = () => {
-  succes = 0;
-  failure = 0;
+  aux = 0;
+  contFinish = 0;
   palabrasSinResponder = [];
-  if ((gano || perdio) === false) {
+  if (finishGame === false) {
     for (let i = 0; i < rosco.children.length; i++) {
-      if (rosco.children[i].className === "item--success") {
-        succes++;
+      if (
+        rosco.children[i].className === "item--success" ||
+        rosco.children[i].className === "item--failure"
+      ) {
+        contFinish++;
       } else {
-        if (rosco.children[i].className === "item--failure") {
-          failure++;
-        } else {
-          if (
-            rosco.children[i].className === "item--skip" ||
-            "item--noAnswer"
-          ) {
-            palabrasSinResponder.push(i);
-          }
+        if (
+          rosco.children[i].className === "item--skip" ||
+          rosco.children[i].className === ""
+        ) {
+          palabrasSinResponder.push(i);
         }
       }
     }
   }
-  if (succes === rosco.children.length) {
-    gano = true;
+  if (contFinish === rosco.children.length) {
+    finishGame = true;
     clearInterval(timer);
-    console.log("ganaste");
+    console.log("Termino");
   } else {
-    if (failure === rosco.children.length) {
-      perdio = true;
-      clearInterval(timer);
-      console.log("perdiste");
-    } else {
-      changeCont = true;
-      cont = palabrasSinResponder[aux];
-      showInfo();
-    }
+    changeCont = true;
+    cont = palabrasSinResponder[aux];
+    showInfo();
   }
 };
 
 var timer = setInterval(() => {
-  showTimer.innerHTML = `Tiempo: ${minutes}:${seconds}`;
-  if (seconds === 0) {
-    minutes = 0;
-    seconds = 60;
-  } else {
-    seconds--;
-  }
   if (minutes === 0 && seconds === 0) {
-    showTimer.innerHTML = "Perdiste";
+    finishGame = true;
     clearInterval(timer);
+    showTimer.innerHTML = "Perdiste";
+    rosco.children[cont].classList.remove("parpadea");
+  } else {
+    if (seconds === 0) {
+      minutes = 0;
+      seconds = 59;
+    } else {
+      seconds--;
+    }
+    showTimer.innerHTML = `Tiempo: ${minutes}:${seconds}`;
   }
 }, 1000);
 

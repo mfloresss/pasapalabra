@@ -201,11 +201,4 @@ const words = [
   },
 ];
 
-let finishGame = {
-  puntuacion: "",
-  tiempo: "",
-  palabrasRespondidas: "",
-  palabrasNoRespondidas: "",
-};
-
-export { words, finishGame };
+export { words };
