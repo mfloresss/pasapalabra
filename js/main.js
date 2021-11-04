@@ -33,7 +33,6 @@ const checkAnswer = () => {
         rosco.children[cont].classList.remove("item--noAnswer");
         rosco.children[cont].classList.remove("item--skip");
         rosco.children[cont].classList.add("item--failure");
-        score--;
       }
     }
     document.getElementById("score").innerHTML = `Score: ${score}`;
