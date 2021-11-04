@@ -208,6 +208,9 @@ body {
   line-height: 30px;
   text-align: justify;
 }
+#description {
+  margin-top: 40px;
+}
 form {
   width: 100%;
   margin-top: 50px;
