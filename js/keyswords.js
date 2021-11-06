@@ -40,7 +40,7 @@ const words = [
   },
   {
     letra: "F",
-    palabra: "FOREING KEY",
+    palabra: "FOREIGN KEY",
     descripcion:
       "Variable que se utiliza cuando nuestro atributo hace referencia un atributo de otra tabla",
     empieza: true,
