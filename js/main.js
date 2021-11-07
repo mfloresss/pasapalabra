@@ -47,7 +47,7 @@ const skipWord = () => {
   }
 };
 
-// Show info (word actually, description actually and start or contrains word actually)
+// Show information (current word and current description of the word)
 const showInfo = () => {
   rosco.children[cont].classList.add("parpadea");
   document.getElementById("word").innerHTML = `${words[cont].letra}`;
@@ -83,7 +83,7 @@ const checkCont = () => {
   }
 };
 
-// Check counter no answer or skip word
+// Check counter for no answer or skip word
 const checkNoAnswer = () => {
   if (aux === palabrasSinResponder.length - 1) {
     rosco.children[cont].classList.remove("parpadea");
@@ -165,7 +165,7 @@ document
   .classList.add(remainingPathColor);
 document.getElementById("timer-label").innerHTML = `${timeLeft}s`;
 
-// Timer of 120 seconds whit interval the one sconds
+// Timer of 120 seconds with interval the one seconds
 let timerInterval = setInterval(() => {
   if (timeLeft === 0) {
     finishGame = true;
