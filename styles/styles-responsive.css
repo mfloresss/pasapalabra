@@ -3,7 +3,80 @@
 *  ----------------------------------------------------------------------------- */
 
 /* Tablets */
-@media only screen and (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
+  header {
+    position: absolute;
+  }
+  .game {
+    height: 100vh;
+  }
+  #title {
+    font-size: 60px;
+  }
+  #copy {
+    padding-top: 15px;
+    font-size: 15px;
+  }
+  .circle li {
+    width: 75px;
+    height: 75px;
+    font-size: 32px;
+  }
+  .text {
+    width: 520px;
+    padding-bottom: 200px;
+  }
+  #word {
+    font-size: 70px;
+  }
+  #starts-or-contains,
+  #description {
+    font-size: 35px;
+  }
+  form {
+    padding-top: 280px;
+  }
+  input {
+    width: 429px;
+    height: 42px;
+  }
+  button {
+    width: 150px;
+    height: 35px;
+  }
+  input,
+  button {
+    font-size: 15px;
+  }
+  #submit {
+    margin-right: 10px;
+  }
+  .btn {
+    margin-top: 10px;
+  }
+  .scoreboard {
+    bottom: 50px;
+    left: 50px;
+  }
+  .scoreboard > * span {
+    font-size: 40px;
+  }
+  .container-timer {
+    width: 120px;
+    height: 120px;
+  }
+  #succes-label {
+    width: 80px;
+    height: 80px;
+  }
+  #failure-label {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Mobiles size L */
+@media only screen and (max-width: 425px) {
   header {
     position: absolute;
   }
@@ -13,10 +86,6 @@
   .scoreboard {
     display: none;
   }
-}
-
-/* Mobiles size L */
-@media only screen and (max-width: 425px) {
   #title {
     font-size: 35px;
   }
