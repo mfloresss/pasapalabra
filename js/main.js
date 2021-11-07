@@ -63,6 +63,10 @@ const showInfo = () => {
       document.getElementById(
         "starts-or-contains"
       ).innerHTML = `Contiene ${words[cont].letra}`;
+    } else {
+      document.getElementById(
+        "starts-or-contains"
+      ).innerHTML = `No contiene ni empieza con ${words[cont].letra}`;
     }
   }
 };
