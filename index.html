@@ -4,16 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./styles/styles-index.css" />
+    <link rel="stylesheet" href="/styles/styles-game.css" />
+    <link rel="stylesheet" href="/styles/styles-responsive.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@100&display=swap"
       rel="stylesheet"
     />
     <title>Pasapalabra</title>
   </head>
   <body>
-    <header class="title-container">
-      <p class="title">PASAPALABRA</p>
+    <header>
+      <span id="title">PASAPALABRA</span>
+      <div class="line"></div>
+      <span id="copy"
+        >Micha, Seba | Copyright © Todos los derechos reservados</span
+      >
     </header>
     <div class="game">
       <ul class="circle" id="ul">
@@ -43,25 +60,52 @@
         <li>Y</li>
         <li>Z</li>
       </ul>
-      <div class="container-text-and-inputs">
-        <div class="text">
-          <h1 id="word"></h1>
-          <p id="starts"></p>
-          <p id="contains"></p>
-          <p id="description"></p>
-        </div>
-        <form onsubmit="return false;">
-          <input type="text" placeholder="Ingrese tu respuesta" id="answer" />
+      <div class="text">
+        <span id="word"></span>
+        <span id="starts-or-contains"></span>
+        <span id="description"></span>
+      </div>
+      <form onsubmit="return false;" id="form">
+        <input
+          type="text"
+          autocomplete="off"
+          placeholder="Ingrese tu respuesta"
+          id="answer"
+        />
+        <div class="btn">
           <button type="submit" id="submit">Enviar</button>
           <button type="submit" id="skip">Pasapalabra</button>
-        </form>
-        <div class="scoreboard">
-          <p id="timer">Tiempo: 1:30</p>
-          <p id="score" class="score" href="">Score: 0</p>
+        </div>
+      </form>
+      <div class="scoreboard">
+        <div class="container-timer">
+          <svg
+            class="base-timer__svg"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g class="base-timer__circle">
+              <path
+                id="base-timer-path-remaining"
+                stroke-dasharray="283"
+                class="base-timer__path-remaining"
+                d="
+                  M 50, 50
+                  m -45, 0
+                  a 45,45 0 1,0 90,0
+                  a 45,45 0 1,0 -90,0
+                "
+              ></path>
+            </g>
+          </svg>
+          <span id="timer-label">120s</span>
+        </div>
+        <div class="container-score">
+          <span id="succes-label">0</span>
+          <span id="failure-label">0</span>
         </div>
       </div>
     </div>
-    <footer></footer>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,142 @@
+/* -----------------------------------------------------------------------------
+*	                                    GAME HTML
+*  ----------------------------------------------------------------------------- */
+
+/* Tablets */
+@media only screen and (max-width: 768px) {
+  header {
+    position: absolute;
+  }
+  .game {
+    height: 100vh;
+  }
+  .scoreboard {
+    display: none;
+  }
+}
+
+/* Mobiles size L */
+@media only screen and (max-width: 425px) {
+  #title {
+    font-size: 35px;
+  }
+  .circle li {
+    width: 40px;
+    height: 40px;
+    font-size: 17px;
+  }
+  .text {
+    width: 280px;
+    padding-bottom: 110px;
+  }
+  #word {
+    font-size: 35px;
+  }
+  #starts-or-contains,
+  #description {
+    font-size: 17px;
+  }
+  form {
+    padding-top: 170px;
+  }
+  input {
+    width: 245px;
+    height: 26px;
+  }
+  button {
+    width: 90px;
+    height: 23px;
+  }
+  input,
+  button {
+    font-size: 10px;
+  }
+  #submit {
+    margin-right: 10px;
+  }
+  .btn {
+    margin-top: 10px;
+  }
+  .scoreboard {
+    top: 115px;
+  }
+}
+
+/* Mobiles size M */
+@media only screen and (max-width: 375px) {
+  .circle li {
+    width: 35px;
+    height: 35px;
+    font-size: 15px;
+  }
+  .text {
+    width: 230px;
+    padding-bottom: 100px;
+  }
+  #word {
+    font-size: 30px;
+  }
+  #starts-or-contains,
+  #description {
+    font-size: 15px;
+  }
+  form {
+    padding-top: 140px;
+  }
+  input {
+    width: 220px;
+    height: 23px;
+  }
+  button {
+    width: 80px;
+    height: 20px;
+  }
+  input,
+  button {
+    font-size: 9px;
+  }
+}
+
+/* Mobiles size S */
+@media only screen and (max-width: 320px) {
+  .circle li {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+  .text {
+    width: 200px;
+    padding-bottom: 90px;
+  }
+  #word {
+    font-size: 20px;
+  }
+  #starts-or-contains,
+  #description {
+    font-size: 13px;
+  }
+  form {
+    padding-top: 112px;
+  }
+  input {
+    width: 200px;
+    height: 20px;
+  }
+  button {
+    width: 75px;
+    height: 17px;
+  }
+  input,
+  button {
+    font-size: 8px;
+  }
+  .scoreboard {
+    top: 100px;
+  }
+  #timer,
+  #score {
+    width: 60px;
+    height: 15px;
+    font-size: 12px;
+  }
+}
