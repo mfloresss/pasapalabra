@@ -16,7 +16,7 @@
   --color-yellow: #ffe37e;
 }
 body {
-  background-image: url(/src/bg-pasapalabra.jpg);
+  background-image: url(../src/bg-pasapalabra.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
