@@ -220,7 +220,7 @@ header {
 
 .text {
   position: absolute;
-  width: 370px;
+  width: 300px;
   padding-bottom: 145px;
   display: flex;
   flex-direction: column;
