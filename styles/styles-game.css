@@ -303,6 +303,7 @@ input::placeholder {
   justify-content: center;
   align-items: center;
   border-radius: 100%;
+  position: relative;
 }
 #succes-label {
   width: 70px;
@@ -324,9 +325,6 @@ input::placeholder {
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-}
-.container-timer {
-  position: relative;
 }
 .base-timer__svg {
   transform: scaleX(-1);
