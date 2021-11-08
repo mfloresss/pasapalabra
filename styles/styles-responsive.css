@@ -4,7 +4,7 @@
 
 /* Tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
-  header {
+  /* header {
     position: absolute;
   }
   .game {
@@ -53,25 +53,31 @@
   }
   .btn {
     margin-top: 10px;
-  }
+  } */
   .scoreboard {
-    bottom: 50px;
+    bottom: 30px;
     left: 50px;
   }
   .scoreboard > * span {
-    font-size: 40px;
+    font-size: 20px;
   }
   .container-timer {
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
   }
   #succes-label {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
   }
   #failure-label {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .scoreboard {
+    display: none;
   }
 }
 
@@ -82,9 +88,6 @@
   }
   .game {
     height: 100vh;
-  }
-  .scoreboard {
-    display: none;
   }
   #title {
     font-size: 35px;
@@ -125,9 +128,6 @@
   }
   .btn {
     margin-top: 10px;
-  }
-  .scoreboard {
-    top: 115px;
   }
 }
 
