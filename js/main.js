@@ -148,7 +148,7 @@ const alertThreshold = 10;
 const fullDashArray = 283;
 const warningThreshold = 20;
 
-const colorCodes = {
+const colorTime = {
   info: {
     color: "blue",
   },
@@ -162,7 +162,7 @@ const colorCodes = {
   },
 };
 
-let remainingPathColor = colorCodes.info.color;
+let remainingPathColor = colorTime.info.color;
 
 document
   .getElementById("base-timer-path-remaining")
@@ -186,7 +186,7 @@ let timerInterval = setInterval(() => {
 
 // Set progressbar counter of the seconds
 const setRemainingPathColor = (timeLeft) => {
-  const { alert, warning, info } = colorCodes;
+  const { alert, warning, info } = colorTime;
   if (timeLeft <= alert.threshold) {
     document
       .getElementById("base-timer-path-remaining")
