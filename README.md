@@ -1,6 +1,6 @@
 # PASAPALABRA
 
-El juego consiste en acertar veinticinco palabras, cada una de las cuales se corresponde con una letra del rosco para la que se ofrece una definición relativa a un concepto Físico.
+El juego consiste en acertar veinticinco palabras, cada una de las cuales se corresponde con una letra del rosco para la que se ofrece una definición relativa a la palabra.
 
 URL: https://mfloresss.github.io/pasapalabra/
 
