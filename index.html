@@ -26,84 +26,88 @@
     <title>Pasapalabra</title>
   </head>
   <body>
-    <header>
-      <span id="title">PASAPALABRA</span>
-      <div class="line"></div>
-      <span id="copy"
-        >Micha, Seba | Copyright © Todos los derechos reservados</span
-      >
-    </header>
-    <div class="game">
-      <ul class="circle" id="ul">
-        <li>A</li>
-        <li>B</li>
-        <li>C</li>
-        <li>D</li>
-        <li>E</li>
-        <li>F</li>
-        <li>G</li>
-        <li>H</li>
-        <li>I</li>
-        <li>J</li>
-        <li>L</li>
-        <li>M</li>
-        <li>N</li>
-        <li>Ñ</li>
-        <li>O</li>
-        <li>P</li>
-        <li>Q</li>
-        <li>R</li>
-        <li>S</li>
-        <li>T</li>
-        <li>U</li>
-        <li>V</li>
-        <li>X</li>
-        <li>Y</li>
-        <li>Z</li>
-      </ul>
-      <div class="text">
-        <span id="word"></span>
-        <span id="starts-or-contains"></span>
-        <span id="description"></span>
-      </div>
-      <form onsubmit="return false;" id="form">
-        <input
-          type="text"
-          autocomplete="off"
-          placeholder="Ingrese tu respuesta"
-          id="answer"
-        />
-        <div class="btn">
-          <button type="submit" id="submit">Enviar</button>
-          <button type="submit" id="skip">Pasapalabra</button>
+    <div id="show-incorrect-word"></div>
+    <div id="show-label-finish-game"></div>
+    <div id="ocult-game">
+      <header>
+        <span id="title">PASAPALABRA</span>
+        <div class="line"></div>
+        <span id="copy"
+          >Micha, Seba | Copyright © Todos los derechos reservados</span
+        >
+      </header>
+      <div class="game">
+        <ul class="circle" id="ul">
+          <li>A</li>
+          <li>B</li>
+          <li>C</li>
+          <li>D</li>
+          <li>E</li>
+          <li>F</li>
+          <li>G</li>
+          <li>H</li>
+          <li>I</li>
+          <li>J</li>
+          <li>L</li>
+          <li>M</li>
+          <li>N</li>
+          <li>Ñ</li>
+          <li>O</li>
+          <li>P</li>
+          <li>Q</li>
+          <li>R</li>
+          <li>S</li>
+          <li>T</li>
+          <li>U</li>
+          <li>V</li>
+          <li>X</li>
+          <li>Y</li>
+          <li>Z</li>
+        </ul>
+        <div class="text">
+          <span id="word"></span>
+          <span id="starts-or-contains"></span>
+          <span id="description"></span>
         </div>
-      </form>
-      <div class="scoreboard">
-        <div class="container-timer">
-          <svg
-            class="base-timer__svg"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g class="base-timer__circle">
-              <path
-                id="base-timer-path-remaining"
-                stroke-dasharray="283"
-                class="base-timer__path-remaining"
-                d="
+        <form onsubmit="return false;" id="form">
+          <input
+            type="text"
+            autocomplete="off"
+            placeholder="Ingrese tu respuesta"
+            id="answer"
+          />
+          <div class="btn">
+            <button type="submit" id="submit">Enviar</button>
+            <button type="submit" id="skip">Pasapalabra</button>
+          </div>
+        </form>
+        <div class="scoreboard">
+          <div class="container-timer">
+            <svg
+              class="base-timer__svg"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g class="base-timer__circle">
+                <path
+                  id="base-timer-path-remaining"
+                  stroke-dasharray="283"
+                  class="base-timer__path-remaining"
+                  d="
                   M 50, 50
                   m -45, 0
                   a 45,45 0 1,0 90,0
                   a 45,45 0 1,0 -90,0
                 "
-              ></path>
-            </g>
-          </svg>
-          <span id="timer-label">120s</span>
-        </div>
-        <div class="container-score">
-          <span id="succes-label">0</span>
-          <span id="failure-label">0</span>
+                ></path>
+              </g>
+            </svg>
+            <span id="timer-label">120s</span>
+          </div>
+          <div class="container-score">
+            <span id="succes-label">0</span>
+            <span id="failure-label">0</span>
+          </div>
         </div>
       </div>
     </div>

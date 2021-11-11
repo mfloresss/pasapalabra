@@ -34,6 +34,13 @@ body {
 li {
   list-style: none;
 }
+input,
+button {
+  border: 0;
+  outline: 0;
+  color: black;
+  background-color: white;
+}
 
 /* ------------------------------------------------
 *	                       HEADER
@@ -45,18 +52,18 @@ header {
   flex-direction: column;
   align-items: center;
 }
-#title {
+header #title {
   padding: 18px 0;
   color: white;
   font-size: 40px;
   font-family: "Paytone One", sans-serif;
 }
-.line {
+header .line {
   width: 90%;
   height: 3px;
   background-color: white;
 }
-#copy {
+header #copy {
   padding-top: 10px;
   font-size: 10px;
   color: white;
@@ -219,7 +226,7 @@ header {
 *	                  CONTENT CIRCLE
 *  ------------------------------------------------ */
 
-.text {
+.game .text {
   position: absolute;
   width: 300px;
   padding-bottom: 145px;
@@ -229,17 +236,17 @@ header {
   color: white;
   transition: all 0.3s ease-in-out;
 }
-.text > * {
+.game .text > * {
   padding-bottom: 5px;
 }
-#word {
+.game .text #word {
   font-size: 40px;
 }
-#starts-or-contains,
-#description {
+.game .text #starts-or-contains,
+.game .text #description {
   font-size: 17px;
 }
-form {
+.game form {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -247,56 +254,62 @@ form {
   position: absolute;
   padding-top: 150px;
 }
-.btn {
+.game form .btn {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 15px;
 }
-input {
+.game form input {
   width: 300px;
   height: 35px;
   padding: 0 14px;
 }
-button {
+.game form button {
   width: 120px;
   height: 30px;
   cursor: pointer;
 }
-input,
-button {
-  border: 0;
-  outline: 0;
+.game form input,
+.game form button {
   font-weight: 100;
   border-radius: 20px;
-  color: black;
-  background-color: white;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 4px 4px 0px #0000001a;
   font-family: "Overpass", sans-serif;
 }
-input::placeholder {
+.game form input::placeholder {
   color: black;
 }
-#submit {
+.game form .btn #submit {
   margin-right: 20px;
+}
+
+.game form .btn #submit:hover {
+  background-color: var(--color-green);
+  transition: ease 0.4s;
+}
+
+.game form .btn #skip:hover {
+  background-color: var(--color-yellow);
+  transition: ease 0.4s;
 }
 
 /* ------------------------------------------------
 *	                  SCOREBOARD
 *  ------------------------------------------------ */
 
-.scoreboard {
+.game .scoreboard {
   position: absolute;
   bottom: 60px;
   left: 100px;
   display: flex;
   align-items: flex-end;
 }
-.scoreboard > * span {
+.game .scoreboard > * span {
   font-size: 25px;
 }
-.container-timer {
+.game .scoreboard .container-timer {
   width: 100px;
   height: 100px;
   background-color: white;
@@ -306,35 +319,35 @@ input::placeholder {
   border-radius: 100%;
   position: relative;
 }
-#succes-label {
+.game .container-score #succes-label {
   width: 70px;
   height: 70px;
   background-color: var(--color-green);
 }
-#failure-label {
+.game .container-score #failure-label {
   width: 50px;
   height: 50px;
   background-color: var(--color-red);
 }
-.container-score {
+.game .container-score {
   display: flex;
   align-items: flex-end;
 }
-#succes-label,
-#failure-label {
+.game .container-score #succes-label,
+.game .container-score #failure-label {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
 }
-.base-timer__svg {
+.scoreboard .container-timer .base-timer__svg {
   transform: scaleX(-1);
 }
-.base-timer__circle {
+.scoreboard .container-timer .base-timer__circle {
   fill: none;
   stroke: none;
 }
-.base-timer__path-remaining {
+.scoreboard .container-timer .base-timer__path-remaining {
   stroke-width: 5px;
   stroke-linecap: round;
   transform: rotate(90deg);
@@ -352,6 +365,62 @@ input::placeholder {
 .base-timer__path-remaining.red {
   color: var(--color-red);
 }
-.container-timer span {
+.container-timer #timer-label {
   position: absolute;
+}
+
+/* ------------------------------------------------
+*	                       LABELS
+*  ------------------------------------------------ */
+
+#show-incorrect-word,
+#show-label-finish-game {
+  width: 100%;
+  height: 100vh;
+  padding: 0 70px;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+#show-incorrect-word > *,
+#show-label-finish-game > * {
+  margin: 40px 0;
+}
+#show-incorrect-word #letra {
+  height: 90px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background-color: #fb3640;
+}
+#show-incorrect-word #title,
+#show-incorrect-word #letra,
+#show-label-finish-game #title {
+  font-size: 50px;
+}
+#show-incorrect-word #correct-word,
+#show-incorrect-word #description-word,
+#show-label-finish-game #cant-word-correct,
+#show-label-finish-game #cant-word-failure {
+  font-size: 20px;
+}
+#show-incorrect-word #button-show-label,
+#show-label-finish-game #new-game {
+  width: 200px;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+#show-incorrect-word #button-show-label:hover,
+#show-label-finish-game #new-game:hover {
+  background-color: var(--color-blue);
+  color: white;
+  transition: ease 0.4s;
+  transition: all 0.3s ease-in-out;
 }

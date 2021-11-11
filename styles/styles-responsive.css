@@ -4,80 +4,46 @@
 
 /* Tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
-  /* header {
-    position: absolute;
-  }
-  .game {
-    height: 100vh;
-  }
-  #title {
-    font-size: 60px;
-  }
-  #copy {
-    padding-top: 15px;
-    font-size: 15px;
-  }
-  .circle li {
-    width: 75px;
-    height: 75px;
-    font-size: 32px;
-  }
-  .text {
-    width: 520px;
-    padding-bottom: 200px;
-  }
-  #word {
-    font-size: 70px;
-  }
-  #starts-or-contains,
-  #description {
-    font-size: 35px;
-  }
-  form {
-    padding-top: 280px;
-  }
-  input {
-    width: 429px;
-    height: 42px;
-  }
-  button {
-    width: 150px;
-    height: 35px;
-  }
-  input,
-  button {
-    font-size: 15px;
-  }
-  #submit {
-    margin-right: 10px;
-  }
-  .btn {
-    margin-top: 10px;
-  } */
-  .scoreboard {
+  .game .scoreboard {
     bottom: 30px;
     left: 50px;
   }
-  .scoreboard > * span {
+  .game .scoreboard > * span {
     font-size: 20px;
   }
-  .container-timer {
+  .game .scoreboard .container-timer {
     width: 90px;
     height: 90px;
   }
-  #succes-label {
+  .game .container-score #succes-label {
     width: 50px;
     height: 50px;
   }
-  #failure-label {
+  .game .container-score #failure-label {
     width: 40px;
     height: 40px;
   }
 }
 
 @media only screen and (max-width: 550px) {
-  .scoreboard {
-    display: none;
+  #show-label > * {
+    margin: 15px 0;
+  }
+  .game .scoreboard {
+    bottom: 40px;
+    width: 100%;
+    left: initial;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .game .container-score #succes-label,
+  .game .container-score #failure-label {
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+  }
+  .game .container-score #succes-label {
+    margin-right: 20px;
   }
 }
 
@@ -89,7 +55,7 @@
   .game {
     height: 100vh;
   }
-  #title {
+  .game .scoreboard {
     font-size: 35px;
   }
   .circle li {
@@ -97,37 +63,53 @@
     height: 40px;
     font-size: 17px;
   }
-  .text {
+  .game .text {
     width: 280px;
     padding-bottom: 110px;
   }
-  #word {
+  .game .text #word {
     font-size: 35px;
   }
-  #starts-or-contains,
-  #description {
+  .game .text #starts-or-contains,
+  .game .text #description {
     font-size: 17px;
   }
-  form {
+  .game form {
     padding-top: 170px;
   }
-  input {
+  .game form input {
     width: 245px;
     height: 26px;
   }
-  button {
+  .game form button {
     width: 90px;
     height: 23px;
   }
-  input,
-  button {
+  .game form input,
+  .game form button {
     font-size: 10px;
   }
-  #submit {
+  .game form .btn {
+    margin-top: 10px;
+  }
+  .game form .btn #submit {
     margin-right: 10px;
   }
-  .btn {
-    margin-top: 10px;
+  #show-incorrect-word > *,
+  #show-label-finish-game > * {
+    margin: 30px 0;
+  }
+  #show-incorrect-word #letra {
+    height: 70px;
+    width: 70px;
+  }
+  #show-incorrect-word #title,
+  #show-incorrect-word #letra {
+    font-size: 35px;
+  }
+  #show-incorrect-word #button-show-label {
+    width: 190px;
+    font-size: 16px;
   }
 }
 
@@ -138,31 +120,54 @@
     height: 35px;
     font-size: 15px;
   }
-  .text {
+  .game .text {
     width: 230px;
     padding-bottom: 100px;
   }
-  #word {
+  .game .text #word {
     font-size: 30px;
   }
-  #starts-or-contains,
-  #description {
+  .game .text #starts-or-contains,
+  .game .text #description {
     font-size: 15px;
   }
-  form {
+  .game form {
     padding-top: 140px;
   }
-  input {
+  .game form input {
     width: 220px;
     height: 23px;
   }
-  button {
+  .game form button {
     width: 80px;
     height: 20px;
   }
-  input,
-  button {
+  .game form input,
+  .game form button {
     font-size: 9px;
+  }
+  .container-label {
+    padding: 0 30px;
+  }
+  #show-label > * {
+    margin: 10px 0;
+  }
+  #show-label #letra {
+    height: 70px;
+    width: 70px;
+  }
+  #show-label #title,
+  #show-label #letra {
+    font-size: 30px;
+  }
+  #show-label #correct-word,
+  #show-label #description-word {
+    font-size: 20px;
+  }
+  #show-label #button-show-label {
+    width: 190px;
+    height: 40px;
+    font-size: 16px;
   }
 }
 
@@ -173,39 +178,41 @@
     height: 30px;
     font-size: 13px;
   }
-  .text {
+  .game .text {
     width: 200px;
     padding-bottom: 90px;
   }
-  #word {
+  .game .text #word {
     font-size: 20px;
   }
-  #starts-or-contains,
-  #description {
+  .game .text #starts-or-contains,
+  .game .text #description {
     font-size: 13px;
   }
-  form {
+  .game form {
     padding-top: 112px;
   }
-  input {
+  .game form input {
     width: 200px;
     height: 20px;
   }
-  button {
+  .game form button {
     width: 75px;
     height: 17px;
   }
-  input,
-  button {
+  .game form input,
+  .game form button {
     font-size: 8px;
   }
-  .scoreboard {
-    top: 100px;
+  .game .scoreboard {
+    bottom: 20px;
   }
-  #timer,
-  #score {
-    width: 60px;
-    height: 15px;
-    font-size: 12px;
+  #show-incorrect-word,
+  #show-label-finish-game {
+    padding: 0 30px;
+  }
+  #show-incorrect-word > *,
+  #show-label-finish-game > * {
+    margin: 20px 0;
   }
 }
