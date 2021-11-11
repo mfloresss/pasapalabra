@@ -1,9 +1,6 @@
-# proyecto-rosco
+# PASAPALABRA
 
-Este es el repo del juego PASAPALABRA.
-
-El juego consiste en acertar veinticinco palabras, cada una de las cuales se corresponde con una letra del rosco para la que se ofrece una definición relativa a un concepto Físico. 
-Los aciertos se reflejarán en las letras mediante el color verde, mientras que los fallos se mostrarán en color rojo y los pasapalabra en amarillo.
+El juego consiste en acertar veinticinco palabras, cada una de las cuales se corresponde con una letra del rosco para la que se ofrece una definición relativa a un concepto Físico.
 
 URL: https://mfloresss.github.io/pasapalabra/
 
