@@ -126,7 +126,7 @@ const words = [
     letra: "Q",
     palabra: "Query",
     descripcion: "Pregunta o consulta a la base de datos",
-    empieza: false,
+    empieza: true,
     contiene: false,
   },
   {
