@@ -8,7 +8,7 @@ import { words } from "./keyswords.js";
 let timePassed = 0;
 let timerInterval = 0;
 let startGame = false;
-const timeLimit = 120;
+const timeLimit = 300;
 let timeLeft = timeLimit;
 const alertThreshold = 10;
 const fullDashArray = 283;
