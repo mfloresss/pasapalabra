@@ -195,8 +195,8 @@ const leabelFinishGame = (text, succes, failure, colorText, backgroundColor) => 
 
   document.getElementById("show-label-finish-game").innerHTML = `
     <span id="title" style="color: ${colorText};">${text}</span>
-    <span id="cant-word-correct" style="color: ${colorText};">Cantidad de palabras respondidas corractamente: ${succes}</span>
-    <span id="cant-word-failure" style="color: ${colorText};">Cantidad de palabras no respondidas corractamente: ${failure}</span>
+    <span id="cant-word-correct" style="color: ${colorText};">Cantidad de palabras respondidas correactamente: ${succes}</span>
+    <span id="cant-word-failure" style="color: ${colorText};">Cantidad de palabras no respondidas correactamente: ${failure}</span>
     <button id="new-game">Jugar denuevo</button>
   `;
   
