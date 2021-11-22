@@ -23,10 +23,14 @@ body {
   background-size: cover;
   font-family: "Overpass", sans-serif;
 }
+.start-game-label {
+  color: white;
+}
+.start-game-label,
 .game {
   width: 100%;
   height: calc(100vh - 121px);
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -386,7 +390,8 @@ header #copy {
   color: white;
 }
 #show-incorrect-word > *,
-#show-label-finish-game > * {
+#show-label-finish-game > *,
+#start-game-label > * {
   margin: 40px 0;
 }
 #show-incorrect-word #letra {
@@ -400,7 +405,8 @@ header #copy {
 }
 #show-incorrect-word #title,
 #show-incorrect-word #letra,
-#show-label-finish-game #title {
+#show-label-finish-game #title,
+#start-game-label #title {
   font-size: 50px;
 }
 #show-incorrect-word #correct-word,
@@ -409,7 +415,8 @@ header #copy {
 #show-label-finish-game #cant-word-failure {
   font-size: 20px;
 }
-#show-incorrect-word #button-show-label,
+#start-game-label #button-exit-label,
+#show-incorrect-word #button-exit-label,
 #show-label-finish-game #new-game {
   width: 200px;
   height: 40px;
@@ -418,6 +425,7 @@ header #copy {
   cursor: pointer;
 }
 #show-incorrect-word #button-show-label:hover,
+#start-game-label #button-exit-label:hover,
 #show-label-finish-game #new-game:hover {
   background-color: var(--color-blue);
   color: white;

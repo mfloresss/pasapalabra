@@ -110,6 +110,23 @@ startInterval();
 //                    Rosco
 // ----------------------------------------------
 
+window.onload = () => {
+  startGame = false;
+  clearInterval(timerInterval);
+
+  document.getElementById("start-game-label").style.display = "flex";
+  document.getElementById("start-game-label").innerHTML = `
+    <span id="title">Estas listo?</span>
+    <button id="button-exit-label">Empezar juego</button>
+  `;
+
+  document.getElementById("button-exit-label").addEventListener("click", function exitShowCorrectWord() {
+    document.getElementById("game").style.display = "flex";
+    document.getElementById("start-game-label").style.display = "none";
+    startInterval();
+  });
+}
+
 // Check answer
 const checkAnswer = () => {
   if (finishGame === false) {
@@ -175,10 +192,10 @@ const showCorrectWord = () => {
     <span id="letra" class="parpadea">${words[cont].letra}</span>
     <span id="correct-word">La palabra correcta es: ${words[cont].palabra}</span>
     <span id="description-word">${words[cont].descripcion}</span>
-    <button id="button-show-label">Seguir jugando</button>
+    <button id="button-exit-label">Seguir jugando</button>
   `;
 
-  document.getElementById("button-show-label").addEventListener("click", function exitShowCorrectWord() {
+  document.getElementById("button-exit-label").addEventListener("click", function exitShowCorrectWord() {
     document.getElementById("show-incorrect-word").style.display = "none";
     if (finishGame != true) {
       document.getElementById("ocult-game").style.display = "block";
@@ -200,7 +217,9 @@ const leabelFinishGame = (text, succes, failure, colorText, backgroundColor) => 
     <button id="new-game">Jugar denuevo</button>
   `;
   
-  document.getElementById("new-game").addEventListener("click", function newGame() {location.reload();});
+  document.getElementById("new-game").addEventListener("click", function newGame() {
+    location.reload();
+  });
 };
 
 // Check counter

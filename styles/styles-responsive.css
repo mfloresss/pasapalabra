@@ -52,6 +52,7 @@
   header {
     position: absolute;
   }
+  .start-game-label,
   .game {
     height: 100vh;
   }
