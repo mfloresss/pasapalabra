@@ -116,7 +116,7 @@ window.onload = () => {
 
   document.getElementById("start-game-label").style.display = "flex";
   document.getElementById("start-game-label").innerHTML = `
-    <span id="title">Estas listo?</span>
+    <span id="title">¿Estas listo?</span>
     <button id="button-exit-label">Empezar juego</button>
   `;
 
